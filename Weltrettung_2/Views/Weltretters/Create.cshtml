@@ -1,0 +1,82 @@
+﻿@model Weltrettung_2.Models.Weltretter
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<style>
+    label {
+        color: black;
+        font-size: 24px;
+        font-family: 'Exocet';
+        font-size: 18px;
+        font-weight: bolder;
+        text-shadow: 0 0 0.2em #ffffff, 0 0 0.2em #ffffff, 0 0 0.2em #ffffff;
+    }
+    .h1-font {
+        color: black;
+        font-family: 'Exocet';
+        font-weight: bolder;
+        text-shadow: 0 0 0.2em #ffffff, 0 0 0.2em #ffffff, 0 0 0.2em #ffffff;
+        margin-top:50px;
+    }
+</style>
+
+<h1 class="h1-font">
+    TRAG DICH ALS WELTENRETTER EIN:
+</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName" class="control-label"></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Country" class="control-label"></label>
+                <input asp-for="Country" class="form-control" />
+                <span asp-validation-for="Country" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Mail" class="control-label"></label>
+                <input asp-for="Mail" class="form-control" />
+                <span asp-validation-for="Mail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Skill" class="control-label"></label>
+                <input asp-for="Skill" class="form-control" />
+                <span asp-validation-for="Skill" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="OfAge"  required /> @Html.DisplayNameFor(model => model.OfAge)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label" style="color:red; font-size:24px;">
+                    <input class="form-check-input" asp-for="Fraction" /> Join the dark side
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
