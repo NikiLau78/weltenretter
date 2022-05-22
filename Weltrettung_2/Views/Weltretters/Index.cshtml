@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Weltrettung_2.Models.Weltretter>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<style>
+    th {
+        color: black;
+        font-family: Exocet;
+        font-size: 18px;
+        text-shadow: 0 0 0.2em #ffffff, 0 0 0.2em #ffffff, 0 0 0.2em #ffffff;
+    }
+</style>
+
+<h1 style="color:aliceblue; font-family:Exocet;font-weight:bolder; margin-top:50px;">Index</h1>
+
+<p>
+    <a asp-action="Create" style="font-family:Exocet;font-size:18px;">Create New</a>
+</p>
+<table class="table" style="color:aliceblue; font-family:Exocet;font-size:18px;">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Country)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Skill)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OfAge)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fraction)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Skill)
+            </td>
+            <td style="color:aqua;">
+                @Html.DisplayFor(modelItem => item.OfAge)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fraction)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Mail">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Mail">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Mail">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
